@@ -1,0 +1,81 @@
+body {
+  background-image: url(/squelettes/images/jpcaca-bg.jpg);
+  background-color: white;
+  background-repeat: repeat-x;
+}
+
+img {
+  border: none;
+}
+
+#page {
+  background-color: white;
+  margin: 0px auto; /* alignement centre */
+  width: 1000px;
+  border: none;
+  border-top: none;
+  padding:0px;
+}
+
+#header {
+  background-image: url(/squelettes/images/jpcaca-banner.jpg);
+  width: 1000px; height: 289px; /* taille de la banner */
+  border-bottom: none;
+}
+
+#footer {
+  clear: both;
+  background-image: none;
+  background-color: black;
+  width: 1000px; height: 133px; /* taille de la banner */
+  border-top: solid 1px black;
+  padding: 10px; color: white; text-align:center;
+}
+
+#footer a {
+  color: white;
+  text-decoration: none;
+}
+
+#leftcolumn {
+  float: left;
+  background-color: white;
+  margin: 0px;
+  padding: 40px;
+  padding-right: 20px;
+  width: 500px;
+}
+
+#cadrenews { background-color: black; padding:20px; }
+#cadrenews #titre { color: #2a89a1; font-size: 14pt; font-weight: bold; }
+#cadrenews #text { color: white; }
+#cadrenews a { text-decoration: none; color: #2a89a1; }
+
+#cadrenews_droite { background-color: white; padding:20px; }
+#cadrenews_droite #titre { color: #2a89a1; font-size: 14pt; font-weight: bold; }
+#cadrenews_droite #text { color: black; }
+#cadrenews_droite a { text-decoration: none; color: #2a89a1; }
+
+#headline { float: left; clear:both; position:relative; }
+#headline img { width: 500px; }
+#headline-img-legend { position:absolute; left:0px; top:0px; width:460px; color: white;background:url(/squelettes/images/back.png) left top repeat; padding: 10px 20px 10px 20px; }
+#headline-img-legend a {color: white; opacity:1.0; position:relative; z-index:1; text-decoration:none; }
+#headline-img-legend #titre { font:18pt "Impact", Times, serif; color:white; text-align: left;}
+
+#second-headlines { left:0px; top:0px; width:460px; color: white;background:url(/squelettes/images/back.jpg) left top repeat; padding: 10px 20px 10px 20px; margin-top:20px; }
+#second-headlines a {color: white; opacity:1.0; position:relative; z-index:1; text-decoration:none; }
+#second-headlines #titre { font:18pt "Impact", Times, serif; color:white; text-align: left;}
+
+#rightcolumn {
+  background-color: white;
+  float: right;
+  margin: 0px;
+  padding: 40px;
+  padding-left: 20px;
+  width: 380px;
+}
+
+#nettoyeur {
+  clear: both;
+  margin: 0px;
+}

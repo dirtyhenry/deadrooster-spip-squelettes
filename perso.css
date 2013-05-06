@@ -1,0 +1,142 @@
+/* --------------------------------------------------------- */
+/* Feuille de style des squelettes par defaut pour SPIP 2.0  */
+/* --------------------------------------------------------- */
+
+/* ------------------------------------------
+/* Typographie generale (style transversaux)
+/* ------------------------------------------ */
+body {
+  background-color: #cccccc;
+  font-family: "Lucida Sans Unicode", Lucida Grande, Calibri, sans, sans-serif;
+  font-size: 10pt;
+  color: black;
+}
+
+/* Titraille / Intertitres */
+h1 { font:18pt "Impact", Times, serif; color:white; text-align: left; }
+
+h2 { 
+  padding-top: 20px;
+}
+
+/* Autres enrichissements typo */
+small { font-size: 10pt; color: #000; }
+.cartouche small { font-size: 10pt; color: #fff; }
+.entry-title-div small { font-size: 10pt; color: #fff; }
+
+strong, em, b, i {
+    font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Calibri, sans, sans-serif;
+}
+
+/* ------------------------------------------
+/* Disposition a l'ecran des blocs principaux
+/* ------------------------------------------ */
+body { background-image: url(background.jpg); }
+
+#page {
+  width: 1000px; 
+  background-color: white;
+  border: solid 5px black;
+  border-top: none;
+}
+
+#entete {
+  width: 1000px; height: 229px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(entete.jpg); background-position: right bottom;
+  border: none;    
+  border-bottom: solid 1px black;
+  padding: 0px;  margin: 0px;
+}
+
+#pied {
+  width: 980px; height: 113px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(footer.jpg); background-position: right bottom;
+  border: none;    
+  border-top: solid 1px black;
+  padding: 10px; margin: 0px;
+  text-align:left;
+}
+
+#breves {
+  width: 380px; height: 70px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(breves.jpg); background-position: right bottom;
+  border: none;    
+  padding: 0px;  margin: 0px;
+}
+
+#mots-cles {
+  width: 380px; height: 70px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(categorie.jpg); background-position: right bottom;
+  border: none;    
+  padding: 0px;  margin: 0px;
+}
+
+#meme-rubrique {
+  width: 380px; height: 70px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(meme-rubrique.jpg); background-position: right bottom;
+  border: none;    
+  padding: 0px;  margin: 0px;
+}
+
+#commentaires {
+  width: 380px; height: 70px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(commentaires.jpg); background-position: right bottom;
+  border: none;    
+  padding: 0px;  margin: 0px;
+}
+
+#lemondevamal {
+  width: 380px; height: 70px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(lemondevamal-380.jpg); background-position: right bottom;
+  border: none;    
+  padding: 0px;  margin: 0px;
+}
+
+#chansondujour {
+  width: 380px; height: 70px; /* taille de la banner */
+  background-color: #eeeeee; background-image: url(chansondujour-380.jpg); background-position: right bottom;
+  border: none;    
+  padding: 0px;  margin: 0px;
+}
+
+#conteneur { width: 500px; float: left; margin: 0px; padding: 40px; padding-right: 20px; }
+#contenu { padding: 0px; margin: 0px;}
+
+#navigation { background-color: white; margin: 0px; padding: 40px; padding-left: 20px; width: 380px; }
+//#navigation img { width: 200px; }
+
+/* ------------------------------------------
+/* Habillage des elements du contenu
+/* ------------------------------------------ */
+.hentry { padding: 0px; margin: 0px; margin-bottom: 40px; line-height: 1.40em;}
+.hentry .article_logo { width: 500px; }
+.entry-title-div { width:460px; color: white; background:url(background.jpg) left top repeat; margin: 0px; padding: 10px 20px 10px 20px; }
+.entry-title { font:18pt "Impact", Times, serif; color:white; text-align: left; }
+
+#lemondevamal-title { padding: 3px; background-color:black; color:white; width:374px;}
+
+#breve-title { padding: 3px; background-color:black; color:white; width:374px; margin-top: 5px;}
+
+.cartouche { width:460px; color: white; background:url(background.jpg) left top repeat; margin: 0px; padding: 10px 20px 10px 20px; }
+
+.soustitre { color: white; }
+
+/* ------------------------------------------
+/* Sous-navigation et autres menus
+/* ------------------------------------------ */
+
+/* Couleurs des liens
+---------------------------------------------- */
+a { color: inherit; text-decoration: none; }
+.entry-content a { color: #009; }
+a:focus,a:hover,a:active { color: #08c; text-decoration: underline; }
+.entry-title-div a { color: white; text-decoration:none; }
+#breve-title a { color: white; text-decoration:none; }
+
+/* DEBUG */
+//#conteneur { border: 1px solid red; width: 498px; }
+//#contenu { border: 1px solid red; }
+//.menu { border: 1px solid green; }
+//.articles { border: 1px solid green; }
+//.hentry { border: 1px solid #ffc; }
+//.entry-title-div { border: 1px solid #88f; }

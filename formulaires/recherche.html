@@ -1,0 +1,5 @@
+<form action="[(#ENV{action})]" method="get" class="navbar-search pull-right">
+    [(#ENV{action}|form_hidden)]
+    [<input type="hidden" name="lang" value="(#ENV{lang})" />]
+	<input id="recherche"[ value="(#ENV{recherche})"]  type="text" class="search-query" placeholder="Recherche" size="25" name="recherche" accesskey="4" />
+</form>

@@ -1,0 +1,36 @@
+/* --------------------------------------------------------- */
+/* Feuille de style de THE LIVINGSTONES I PRESUME            */
+/* --------------------------------------------------------- */
+
+/* ------------------------------------------
+/* Typographie generale (style transversaux)
+/* ------------------------------------------ */
+
+/* Autres enrichissements typo */
+small { color: #000; }
+
+/* ------------------------------------------
+/* Disposition a l'ecran des blocs principaux
+/* ------------------------------------------ */
+body { background: #DDD; }
+
+#page { background-color: #FFFFFF; color: #000000; }
+
+#entete {
+  height: 131px; /* taille de la banner */
+  background-image: url(livingstones-header.png);
+}
+
+#navigation { background-color: #FFFFFF;}
+
+#pied {
+  background: #848484;
+}
+
+/* ------------------------------------------
+/* Sous-navigation et autres menus
+/* ------------------------------------------ */
+
+/* Couleurs des liens
+---------------------------------------------- */
+a { color: #000; }

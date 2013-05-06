@@ -1,0 +1,27 @@
+  .tagcloud li {display:inline; }
+  .tagcloud li div {display:inline; padding: 3px;}
+  .tagcloud li div:hover {
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+    color: #000;
+  }
+  .poids-9 {font-size: 9pt; color: #CCCCCC;}
+  .poids-10 {font-size: 10pt; color: #C0C0C0;}
+  .poids-11 {font-size: 11pt; color: #B4B4B4;}
+  .poids-12 {font-size: 12pt; color: #A8A8A8;}
+  .poids-13 {font-size: 13pt; color: #9C9C9C;}
+  .poids-14 {font-size: 14pt; color: #909090;}
+  .poids-15 {font-size: 15pt; color: #848484;}
+  .poids-16 {font-size: 16pt; color: #787878;}
+  .poids-17 {font-size: 17pt; color: #6C6C6C;}
+  .poids-18 {font-size: 18pt; color: #606060;}
+  .poids-19 {font-size: 19pt; color: #545454;}
+  .poids-20 {font-size: 20pt; color: #484848;}
+  .poids-21 {font-size: 21pt; color: #3C3C3C;}
+  .poids-22 {font-size: 22pt; color: #303030;}
+  .poids-23 {font-size: 23pt; color: #242424;}
+  .poids-24 {font-size: 24pt; color: #181818;}
+  .poids-25 {font-size: 25pt; color: #0C0C0C;}
+  .poids-26 {font-size: 26pt; color: #000000;}
+
