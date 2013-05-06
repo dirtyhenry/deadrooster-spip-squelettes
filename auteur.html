@@ -1,0 +1,70 @@
+<BOUCLE_principale(AUTEURS) {id_auteur}>
+<!doctype html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="#LANG" class="no-js"> <!--<![endif]-->
+<head>
+  <INCLURE{fond=inc-dr2011-head-1}>
+  <title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+  [<meta name="description" content="(#BIO|couper{150}|attribut_html)" />]
+  <!-- [<meta name="author" content="(#LESAUTEURS)">] -->
+  <INCLURE{fond=inc-dr2011-head-2}>
+  <link rel="alternate" type="application/rss+xml" title="[(#NOM|textebrut)]" href="[(#URL_PAGE{backend}|parametre_url{id_auteur,#ID_AUTEUR})]" />
+</head>
+
+<body>
+  <div id="container">
+    <INCLURE{fond=inc-dr2011-nav}>
+    <INCLURE{fond=inc-dr2011-header}>
+    
+    <div id="main" class="container_12 clearfix">
+      <div id="tags" class="grid_2 sommaire_box alpha">
+        <h2>pseudo-rubriques</h2>
+        <B_mot_cle_de_rubrique>
+          <div class="navigation_links">
+            <ul>
+          		<BOUCLE_mot_cle_de_rubrique(MOTS) {id_groupe=3}{0,20}>
+          		  <li><a href="#URL_MOT">#TITRE</a></li>
+          		</BOUCLE_mot_cle_de_rubrique>
+        	  </ul>
+        	</div>
+        </B_mot_cle_de_rubrique>	
+      </div>
+      
+      <div id="latest-posts" class="grid_6 sommaire_box">
+        <B_articles_auteur>
+          #ANCRE_PAGINATION
+      		<BOUCLE_articles_auteur(ARTICLES) {id_auteur}{par date}{inverse} {pagination 10}>
+      		  [<h2>(#DATE|affdate)</h2>]
+  					  [<div class="logo">
+  					    <a href="#URL_ARTICLE">
+  					      (#LOGO_ARTICLE|image_reduire{460,460})
+  					    </a>
+  					  </div>]
+    					<h1><a href="#URL_ARTICLE">#TITRE</a></h1>
+    					<p>
+    					  [<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]  					  
+    					</p>
+      		</BOUCLE_articles_auteur>
+      		[<p class="pagination">(#PAGINATION)</p>]
+        </B_articles_auteur>	
+      </div>
+      
+      <aside class="sommaire_box grid_4 omega">
+        <div>
+          <h2>à propos de l'auteur</h2>
+          <h1 class="#EDIT{qui} fn">#NOM</h1>
+					<p>
+            [<div class="#EDIT{bio} texte note">(#BIO)</div>]
+					</p>
+        </div>
+      </aside><!-- aside -->
+    </div><!-- end .main -->
+    <INCLURE{fond=inc-dr2011-footer}>
+  </body>
+</html>
+</BOUCLE_principale>

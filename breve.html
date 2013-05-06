@@ -1,0 +1,111 @@
+<BOUCLE_principale(BREVES) {id_breve}>
+<!doctype html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="#LANG" class="no-js" xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml"> <!--<![endif]-->
+<head>
+    <INCLURE{fond=inc-dr2011-head-1}>
+    <title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+    [<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
+    <INCLURE{fond=inc-dr2011-head-2}>
+    [<meta property="og:title" content="(#TITRE)"/>]
+    <meta property="og:type" content="article" />
+    [<meta property="og:url" content="#URL_SITE_SPIP/(#URL_ARTICLE)"/>]
+    [<meta property="og:image" content="#URL_SITE_SPIP/IMG/(#LOGO_ARTICLE|fichier)"/>]
+    <meta property="og:site_name" content="Dead Rooster"/>
+    [<meta property="og:description" content="(#INTRODUCTION{150}|attribut_html)"/>]
+    <link rel="alternate" type="application/rss+xml" title="<:dernieres_breves:>" href="#URL_PAGE{backend-breves}" />
+</head>
+<body>
+  <div id="container">
+    <INCLURE{fond=inc-dr2011-nav}>
+    <INCLURE{fond=inc-dr2011-header}>
+    
+    <div id="main" class="container_12 clearfix sommaire_box">
+      <article class="prefix_1 grid_7 suffix_1">
+        [<h2>(#DATE|affdate)</h2>]
+				<h1>#TITRE</h1>
+			  [<div class="logo"><a href="#URL_BREVE"><img src="IMG/(#LOGO_BREVE|fichier)"></a></div>]
+			  <div class="post-content">
+			    <p>
+    			  [<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+			    </p>
+          [<p class="lien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+    		</div>
+      </article>
+
+      <aside class="sommaire_box grid_3 omega">
+        <h2>Social</h2>
+        <p>
+          [<:par_auteur:> (#LESAUTEURS)]
+        </p>
+
+        <div style="padding: 10px 0;">
+          <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=163798547033544&amp;xfbml=1"></script><fb:like href="" send="false" width="220" show_faces="true" font=""></fb:like>
+        </div>
+
+        <div style="padding: 10px 0;">
+          <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="dead__rooster" data-lang="fr">Tweeter</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </div>
+
+        [(#REM) Forum de la breve
+        NB : pour desactiver les forums de breve, supprimez simplement les lignes ci-dessous ]
+        <a href="#forum" name="forum" id="forum"></a>
+        <INCLURE{fond=inc-forum}{id_breve}>
+        [<p class="repondre"><a href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow"><:repondre_breve:></a></p>]
+
+    		[(#REM) Gestion du portfolio et des documents
+    			Le critere {env} permet de passer d'autres arguments de la page
+    			par exemple l'id_document choisi pour un affichage complet
+    		]
+    		[(#INCLURE{fond=inc-documents}{id_article}{env})]
+
+    		[(#REM) Petition :
+    		La petition ayant une PAGINATION il faut absolument {env}
+    		et pourquoi pas ajax
+    		][(#PETITION|?{' '})<INCLURE{fond=inc-petition}{id_article}{env}{ajax}>]
+
+        [<div class="notes surlignable"><h2 class="pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
+
+        [(#REM) Menu de navigation mots-cles ]
+        <B_mots>
+        <div class="menu">
+            <h2><:mots_clefs:></h2>
+            <ul>
+            <BOUCLE_mots(MOTS) {id_breve} {par titre}>
+                <li><a href="#URL_MOT" rel="tag">#TITRE</a></li>
+            </BOUCLE_mots>
+            </ul>
+        </div>
+        </B_mots>
+
+          [(#REM) Breves dans la meme rubrique ]
+          <B_breves>
+          <div class="menu">
+            <h2><a href="#URL_RUBRIQUE"><:meme_rubrique:></a></h2>
+                  <BOUCLE_breves(BREVES) {id_rubrique} {par date}{inverse} {0,10}>
+            		  <div class="compile">
+          				  [<div class="logo">
+          				    <a href="#URL_BREVE">
+          				      (#LOGO_BREVE_RUBRIQUE|image_recadre{440,200,center}|image_reduire{220,100})
+          				    </a>
+          				  </div>]
+          					<h3><a href="#URL_BREVE"[ class="(#EXPOSE)"]>#TITRE</a></h3>
+          				</div>
+          				</BOUCLE_breves>
+          </div>
+          </B_breves>
+
+      </aside>
+    </div>
+
+    <INCLURE{fond=inc-dr2011-footer}>
+  </body>
+</html>
+</BOUCLE_principale>
+      

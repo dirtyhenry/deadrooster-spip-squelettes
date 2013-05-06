@@ -1,0 +1,128 @@
+[(#REM)
+Un cache plus court, pour la boucle syndic_articles
+]#CACHE{3600}
+<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!doctype html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="#LANG" class="no-js"> <!--<![endif]-->
+<head>
+  <INCLURE{fond=inc-dr2011-head-1}>
+  <title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+  [<meta name="description" content="(#INTRODUCTION{150}|textebrut)" />]
+  <meta name="author" content="Dead Rooster">
+  <INCLURE{fond=inc-dr2011-head-2}>
+  <link rel="alternate" type="application/rss+xml" title="<:syndiquer_rubrique:>" href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" />
+</head>
+
+<body>
+  <div id="container">
+    <INCLURE{fond=inc-dr2011-nav}>
+    <INCLURE{fond=inc-dr2011-header}>
+
+    <div id="main" class="container_12 clearfix">
+      <div id="tags" class="grid_2 sommaire_box alpha">
+        <h2>pseudo-rubriques</h2>
+        <B_mot_cle_de_rubrique>
+        <div class="navigation_links">
+          <ul>
+            <BOUCLE_mot_cle_de_rubrique(MOTS) {id_groupe=3}{0,20}>
+            <li><a href="#URL_MOT">#TITRE</a></li>
+            </BOUCLE_mot_cle_de_rubrique>
+          </ul>
+        </div>
+        </B_mot_cle_de_rubrique>	
+      </div>
+
+      <div id="latest-posts" class="grid_6 sommaire_box">
+        <B_article_le_plus_recent>
+        #ANCRE_PAGINATION
+        <h2>Brèves</h2>
+        <BOUCLE_article_le_plus_recent(ARTICLES) {id_rubrique}{par date}{inverse}{pagination 10}>
+        <div class="clearfix">
+          <div class="grid_2 alpha">
+            [<div class="logo">
+              <a href="#URL_ARTICLE">
+                (#LOGO_ARTICLE_RUBRIQUE|image_reduire{140,1400})
+              </a>
+            </div>]
+          </div>
+          <div class="grid_4 omega">
+            <h1><a href="#URL_ARTICLE">#TITRE</a></h1>
+            <p>
+              [<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]  					  
+            </p>
+          </div>
+        </div>
+        <hr />
+        
+        <BOUCLE_breves(BREVES) {par date} {inverse} {doublons} {date>#DATE}>
+        <div class="clearfix">
+          <div class="grid_2 alpha">
+            [<div class="logo">
+              <a href="#URL_BREVE">
+                (#LOGO_BREVE_RUBRIQUE|image_reduire{140,1400})
+              </a>
+            </div>]
+          </div>
+          <div class="grid_4 omega">
+            <h1><a href="#URL_BREVE">#TITRE</a></h1>
+            <p>
+              [<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]  					  
+            </p>
+          </div>
+        </div>
+        <hr />
+        </BOUCLE_breves>
+        
+        </BOUCLE_article_le_plus_recent>
+        [<p class="pagination">(#PAGINATION)</p>]
+        </B_article_le_plus_recent>	
+      </div>
+
+      <aside class="sommaire_box grid_4 omega">
+        <div>
+          <h2>créations</h2>
+          <iframe width="300" height="300" style="position: relative; display: block; width: 300px; height: 300px;" src="http://bandcamp.com/EmbeddedPlayer/v=2/album=3803626780/size=grande3/bgcol=FFFFFF/linkcol=4285BB/" allowtransparency="true" frameborder="0"><a href="http://thelivingstonesipresume.bandcamp.com/album/the-stanley-ep">The Stanley EP by The Livingstones I Presume</a></iframe>
+        </div>
+        <div>
+          <h2>quelques-uns des artistes mentionnés</h2>
+          <B_mot_cle_artiste>
+          <BOUCLE_mot_cle_artiste(MOTS) {id_groupe=4}{par hasard}{0,10}>
+          [(#COMPTEUR_BOUCLE|alterner{'<div class="clearfix">',''})]
+            <div class="compile grid_2 [(#COMPTEUR_BOUCLE|alterner{'alpha','omega'})]">
+              <h3><a href="#URL_MOT">#TITRE</a></h3>
+            </div>
+            [(#COMPTEUR_BOUCLE|alterner{'','</div>'})]
+            </BOUCLE_mot_cle_artiste>
+            </B_mot_cle_artiste>	
+          </div>
+          <div>
+            <h2>quelques vieux trucs en vrac</h2>
+            <B_envrac_le_plus_recent>
+            <BOUCLE_envrac_le_plus_recent(ARTICLES) {id_rubrique}{par hasard}{0,6}>
+            [(#COMPTEUR_BOUCLE|alterner{'<div class="clearfix">',''})]
+              <div class="compile grid_2 [(#COMPTEUR_BOUCLE|alterner{'alpha','omega'})]">
+                [<div class="logo">
+                  <a href="#URL_ARTICLE">
+                    (#LOGO_ARTICLE_RUBRIQUE|image_reduire{250,250}|image_recadre{140,140,center})
+                  </a>
+                </div>]
+                <h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+              </div>
+              [(#COMPTEUR_BOUCLE|alterner{'','</div>'})]
+              </BOUCLE_envrac_le_plus_recent>
+              </B_envrac_le_plus_recent>	
+            </div>
+          </aside><!-- aside -->
+        </div><!-- end .main -->
+
+        <INCLURE{fond=inc-dr2011-footer}>
+      </div><!--#page-->
+    </body>
+    </html>
+    </BOUCLE_principale>

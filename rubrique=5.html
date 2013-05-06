@@ -1,0 +1,106 @@
+[(#REM)
+	Un cache plus court, pour la boucle syndic_articles
+]#CACHE{3600}
+<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#INTRODUCTION{150}|textebrut)" />]
+<INCLURE{fond=inc-head}>
+<link rel="stylesheet" href="/squelettes/css/jeanpierrecaca.css" type="text/css" media="all" />
+[(#REM) Lien vers le flux RSS des articles la rubrique ]
+<link rel="alternate" type="application/rss+xml" title="<:syndiquer_rubrique:>" href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" />
+</head>
+
+<body>
+  <div id="page">
+
+    <a href="http://www.deadrooster.org/-Jean-Pierre-Caca-">
+      <div id="header">&nbsp;</div>
+    </a>
+  
+    <div id="content">
+      <div id="leftcolumn">
+          
+        <div id="cadrenews">
+          <B_news>
+            <BOUCLE_news(ARTICLES){id_rubrique=6}{par date}{inverse}>
+              <span id="titre">
+                <a href="#URL_ARTICLE">#TITRE</a>
+              </span>
+              <br />
+              <span id="text">
+                #TEXTE
+              </span>
+              [<br /><br /><img src="/IMG/(#LOGO_ARTICLE|fichier)" style="width: 460px;" />]
+              <br />
+              <div style="text-align: right">
+                <BOUCLE_rubrique_en_cours(RUBRIQUES){id_rubrique}>
+                  <a href="#URL_RUBRIQUE">Toutes les news</a>
+                </BOUCLE_rubrique_en_cours>
+              </div>
+            </BOUCLE_news>
+          </B_news>
+        </div>
+        
+        <br class="nettoyeur" />
+      
+      </div><!-- fin leftcolumn -->
+      
+      <div id="rightcolumn">
+        <div id="cadrenews_droite">
+          <B_bio>
+            <BOUCLE_bio(ARTICLES){id_article=4}>
+              <span id="titre">
+                <a href="#URL_ARTICLE">#TITRE</a>
+              </span>
+              <br />
+              <span id="text">#TEXTE</span>
+            </BOUCLE_bio>
+          </B_bio>
+        </div>
+
+        <div id="cadrenews_droite">
+          <span id="titre">Musique</span>
+          <br />
+          <B_mp3>
+            <BOUCLE_mp3(ARTICLES){id_rubrique=7}{par date}{inverse}>
+              <span style="color: black;">
+                #TITRE<br />
+                <BOUCLE_fichiermp3(DOCUMENTS){id_article}{extension=mp3}>
+                  <object type="application/x-shockwave-flash" data="squelettes/flash/dewplayer.swf?mp3=#URL_DOCUMENT" width="200" height="20">
+                    <param name="movie" value="squelettes/flash/dewplayer.swf?mp3=#URL_DOCUMENT" />
+                  </object>
+                  <br />
+                </BOUCLE_fichiermp3>
+              </span>
+            </BOUCLE_mp3>
+          </B_mp3>
+        </div>
+        
+        <div id="cadrenews_droite">
+          <span id="titre">Concert</span>
+          <br />
+          <span id="texte">Aucune date prévue</span>
+        </div>
+                
+      </div>    
+    </div><!-- fin content -->
+    
+    <div id="footer"><a href="#URL_SITE_SPIP/">Retour à l'accueil Dead Rooster</a></div>
+  </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8271681-1");
+pageTracker._setDomainName(".deadrooster.org");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+
+</html>
+</BOUCLE_principale>

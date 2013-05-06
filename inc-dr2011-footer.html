@@ -1,0 +1,28 @@
+<footer>
+	<div>
+	  <B_forums_liens>
+	    <h5>Derniers commentaires</h5>
+		  <ul>
+			  <BOUCLE_forums_liens(FORUMS) {plat} {par date}{inverse} {0,8}>
+			    <li><a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>[(#TEXTE|couper{80})] ([(#DATE|affdate{'d.m.Y'})])</a></li>
+		    </BOUCLE_forums_liens>
+		  </ul>
+	  </B_forums_liens>
+	</div>
+</footer>
+
+[(#REM)
+	Cette balise permet de deporter les calculs lourds (indexation etc)
+	dans une image cachee, ce qui evite de ralentir l'affichage des pages.
+]#SPIP_CRON
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8271681-1");
+pageTracker._setDomainName(".deadrooster.org");
+pageTracker._trackPageview();
+} catch(err) {}</script>
