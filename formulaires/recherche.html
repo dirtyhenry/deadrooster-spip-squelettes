@@ -1,5 +1,10 @@
-<form action="[(#ENV{action})]" method="get" class="navbar-search pull-right">
-    [(#ENV{action}|form_hidden)]
-    [<input type="hidden" name="lang" value="(#ENV{lang})" />]
-	<input id="recherche"[ value="(#ENV{recherche})"]  type="text" class="search-query" placeholder="Recherche" size="25" name="recherche" accesskey="4" />
-</form>
+<div class="formulaire_spip formulaire_recherche" id="formulaire_recherche">
+  <form action="[(#ENV{action})]" method="get">
+    <div>
+	    [(#ENV{action}|form_hidden)]
+	    [<input type="hidden" name="lang" value="(#ENV{lang})" />]
+	    <input id="recherche"[ value="(#ENV{recherche})"]  type="text" class="text" placeholder="Recherche sur le site" size="25" name="recherche" accesskey="4" />
+	    <input type="submit" class="submit" value="ok" title="<:info_rechercher:>" />
+    </div>
+  </form>
+</div>
