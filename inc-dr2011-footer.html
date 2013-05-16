@@ -11,18 +11,14 @@
 	</div>
 </footer>
 
-[(#REM)
-	Cette balise permet de deporter les calculs lourds (indexation etc)
-	dans une image cachee, ce qui evite de ralentir l'affichage des pages.
-]#SPIP_CRON
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/squelettes/assets/js/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/squelettes/assets/js/plugins.js"></script>
+<script src="/squelettes/assets/js/main.js"></script>
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+<script>
+    var _gaq=[['_setAccount','UA-8271681-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src='//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-8271681-1");
-pageTracker._setDomainName(".deadrooster.org");
-pageTracker._trackPageview();
-} catch(err) {}</script>
