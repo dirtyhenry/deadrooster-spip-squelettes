@@ -94,3 +94,8 @@ footer a:hover { color: #607890; inherit; text-decoration: none; }
 .pagination { padding: 40px 0;}
 .debug { background-color: #aaa; border: thin solid red; }
 
+/* https://gist.github.com/aarongustafson/1313517 */
+iframe {
+  width: 100%;
+}
+
